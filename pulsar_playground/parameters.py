@@ -56,11 +56,13 @@ lgr_params = dict( penalty = ['l1','l2'],
 """ dictionary: Parameter grid for LogisticRegression. 
         Please refer to Scikit Learn's documentation for more information.""" 
 
-xgb_params = dict( n_estimators = [200, 400],
-                   learning_rate = [0.001], 
-                   max_depth = [3], 
-                   reg_alpha = [0.0001], 
-                   gamma = [0.1], )
+xgb_params = dict( tree_method = ['gpu_hist']
+                   n_estimators = [500],
+                   colsample_bytree = [ 0.3, 0.5, 0.8, 1.],
+                   learning_rate = [0.001, 0.01, 0.1], 
+                   max_depth = [3, 4, 5], 
+                   gamma = [0, 1, 5],
+                   subsample = [0.5, 0.8, 1.], )
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
