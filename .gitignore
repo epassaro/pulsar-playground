@@ -1,0 +1,6 @@
+candidates.txt
+*.pyc
+*.joblib
+*-0.ipynb
+__pycache__
+.ipynb_checkpoints

@@ -1,0 +1,12 @@
+name: pulsar-playground
+
+channels:
+  - conda-forge
+
+dependencies:
+  - seaborn
+  - scikit-learn
+  - imbalanced-learn
+  - xgboost
+  - tensorflow
+  - keras

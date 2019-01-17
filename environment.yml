@@ -1,0 +1,20 @@
+name: pulsar-playground
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - appmode
+  - ipywidgets
+  - defaults::numpy           # Force to use 'defaults' NumPy which is compiled against MKL.
+  - seaborn
+  - scikit-learn
+  - imbalanced-learn
+  - xgboost
+  - tensorflow
+  - keras
+  - sphinx
+  - pip
+  - pip:
+    - sphinx_rtd_theme
