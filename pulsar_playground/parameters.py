@@ -56,7 +56,7 @@ lgr_params = dict( penalty = ['l1','l2'],
 """ dictionary: Parameter grid for LogisticRegression. 
         Please refer to Scikit Learn's documentation for more information.""" 
 
-xgb_params = dict( tree_method = ['gpu_hist']
+xgb_params = dict( tree_method = ['gpu_hist'],
                    n_estimators = [500],
                    colsample_bytree = [ 0.3, 0.5, 0.8, 1.],
                    learning_rate = [0.001, 0.01, 0.1], 
