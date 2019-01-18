@@ -4,7 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from xgboost import XGBClassifier
 from keras.models import Sequential
 from keras.layers import Dense
-#from keras.callbacks import EarlyStopping
+from keras.callbacks import EarlyStopping
 from keras.wrappers.scikit_learn import KerasClassifier
 from .parameters import *
 

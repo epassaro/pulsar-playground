@@ -29,7 +29,7 @@ n_components = None
 cv = 3              
 """ integer: Number of cross-validation folds. """
 
-scoring = 'recall'  
+scoring = 'neg_log_loss'
 """ string: Cross validation scoring method. """
 
 n_jobs = 1
@@ -54,7 +54,7 @@ lgr_params = dict( penalty = ['l1','l2'],
                    solver= ['liblinear'],
                    max_iter = [200], )
 """ dictionary: Parameter grid for LogisticRegression. 
-        Please refer to Scikit Learn's documentation for more information.""" 
+        Please refer to Scikit Learn's documentation for more information. """ 
 
 xgb_params = dict( n_estimators = [200, 400],
                    learning_rate = [0.001], 
@@ -67,9 +67,9 @@ xgb_params = dict( n_estimators = [200, 400],
 ann_params = dict( n = [2, 4, 8],
                    m = [8],
                    input_dim = [8],
-                   epochs = [100],      
+                   epochs = [100],
                    batch_size = [10, 100], 
                    verbose = [0], )
 """ dictionary: Parameter grid for KerasClassifier. 
-        If 'rotate' is True then "input_dim" should match "n_components". Otherwise must be equal to number of features. 
-        Please refer to Keras documentation for more information."""
+        If 'rotate' is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
+        Please refer to Keras documentation for more information. """
