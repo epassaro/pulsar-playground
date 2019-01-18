@@ -9,7 +9,7 @@ dependencies:
   - ipywidgets
   - defaults::numpy           # Force to use 'defaults' NumPy which is compiled against MKL.
   - seaborn
-  - scikit-learn=0.18.2
+  - scikit-learn
   - imbalanced-learn
   - xgboost
   - tensorflow
