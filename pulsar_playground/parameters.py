@@ -70,8 +70,8 @@ xgb_params = dict( n_estimators = [200, 400],
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
-ann_params = dict( n = np.range(8, 20, 2),
-                   m = np.range(8, 20, 2),
+ann_params = dict( n = np.arange(8, 20, 2),
+                   m = np.arange(8, 20, 2),
                    input_dim = [8],
                    epochs = [1000],
                    batch_size = [10, 100], 
