@@ -1,9 +1,15 @@
 """ Parameters for preprocessing and fine-tuning models. """
-
 import numpy as np
+from keras.callbacks import EarlyStopping
+
+
+####################################################### 
+#                    Miscellaneous                    #
+#######################################################
 
 disable_warnings = True
 """ bool: Disable warnings. """
+
 
 ####################################################### 
 #               Feature transformation                #
@@ -29,7 +35,7 @@ n_components = None
 cv = 3              
 """ integer: Number of cross-validation folds. """
 
-scoring = 'neg_log_loss'
+scoring = 'recall'
 """ string: Cross validation scoring method. """
 
 n_jobs = 1
@@ -68,8 +74,9 @@ ann_params = dict( n = [2, 4, 8],
                    m = [8],
                    input_dim = [8],
                    epochs = [100],
-                   batch_size = [10, 100], 
-                   verbose = [0], )
+                   batch_size = [100], 
+                   verbose = [1], 
+                   callbacks = [[EarlyStopping(monitor='val_loss', patience=1, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
         If 'rotate' is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
         Please refer to Keras documentation for more information. """
