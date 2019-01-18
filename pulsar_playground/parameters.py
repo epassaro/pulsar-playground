@@ -1,6 +1,6 @@
 """ Parameters for preprocessing and fine-tuning models. """
 import numpy as np
-from keras.callbacks import EarlyStopping
+from keras.callbacks import EarlyStopping, ModelCheckpoint
 
 
 ####################################################### 
@@ -70,13 +70,13 @@ xgb_params = dict( n_estimators = [200, 400],
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
-ann_params = dict( n = [2, 4, 8],
-                   m = [8],
+ann_params = dict( n = np.range(8, 20, 2),
+                   m = np.range(8, 20, 2),
                    input_dim = [8],
-                   epochs = [100],
-                   batch_size = [100], 
+                   epochs = [1000],
+                   batch_size = [10, 100], 
                    verbose = [1], 
-                   callbacks = [[EarlyStopping(monitor='val_loss', patience=1, mode='auto')]], )
+                   callbacks = [[EarlyStopping(monitor='acc', patience=5, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
         If 'rotate' is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
         Please refer to Keras documentation for more information. """
