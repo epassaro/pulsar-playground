@@ -3,12 +3,12 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from xgboost import XGBClassifier
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, Dropout
 from keras.wrappers.scikit_learn import KerasClassifier
 from .parameters import *
 
 
-def keras_model(n, m, input_dim):
+def keras_model(n, m, input_dim, drop_visible, drop_hidden):
     """ Function to build a sequential neural network.
     
     Parameters
@@ -21,11 +21,12 @@ def keras_model(n, m, input_dim):
         Length of feature vector.
     """
     model = Sequential()
-
-    model.add(Dense(m, input_dim=input_dim, kernel_initializer='uniform', activation='relu'))
+    model.add(Dropout(drop_visible, input_shape=(input_dim,)))
+    model.add(Dense(m, kernel_initializer='uniform', activation='relu'))
     
     for i in range(n-1):
         model.add(Dense(m, kernel_initializer='uniform', activation='relu'))
+        model.add(Dropout(drop_hidden))
     
     model.add(Dense(1, kernel_initializer='uniform', activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
