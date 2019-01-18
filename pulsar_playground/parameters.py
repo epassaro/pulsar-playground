@@ -58,12 +58,12 @@ lgr_params = dict( penalty = ['l1','l2'],
 
 xgb_params = dict( tree_method = ['gpu_hist'],
                    predictor = ['cpu_predictor'],
-                   n_estimators = [200, 500],
+                   n_estimators = [200, 400],
                    colsample_bytree = np.arange(0.7, 0.9, 0.05),
-                   learning_rate = np.arange(0.01, 0.1, 0.01),
-                   max_depth = np.arange(4, 10, 1),
-                   gamma = [5, 6],
-                   subsample = np.arange(0.8, 1., 0.5),               
+                   learning_rate = np.arange(0.01, 0.3, 0.05),
+                   max_depth = np.arange(3, 10, 1),
+                   gamma = [5],
+                   subsample = np.arange(0.8, 1, 0.5),               
                    )
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
