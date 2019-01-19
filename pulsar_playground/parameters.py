@@ -6,7 +6,7 @@ disable_warnings = True
 """ bool: Disable warnings. """
 
 ####################################################### 
-#               Feature transformation                #
+#                Preprocessing tasks                  #
 #######################################################
 
 scale = True 
@@ -14,12 +14,6 @@ scale = True
 
 oversample = True
 """ bool: Use SMOTE to fix class imbalance. """
-
-rotate = False
-""" bool: Use PCA. If activated please clean previously non-PCA trained models. """
-
-n_components = None 
-""" integer: Number of features to keep if "rotate" is True. """
 
 
 ####################################################### 

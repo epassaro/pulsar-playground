@@ -38,14 +38,6 @@ if __name__ == '__main__':
         scaler = StandardScaler()
         scaler.fit_transform(X_train)
 
-    if rotate:
-
-        pca = PCA(n_components=n_components)
-        pca.fit(X_train)
-        X_train = pca.transform(X_train)
-
-        dump(pca, "./components.joblib")
-
     # Train models
     model_selection= list(sys.argv[1:])
 

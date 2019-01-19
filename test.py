@@ -26,10 +26,6 @@ if __name__ == '__main__':
         scaler = StandardScaler()
         scaler.fit_transform(X_test)
 
-    if rotate:
-        pca = load("./components.joblib")
-        X_test = pca.transform(X_test)
-
     # Compute AuROC
     pickled = glob("./saved_models/*.joblib")
     hdf5 = glob("./saved_models/*.h5")
