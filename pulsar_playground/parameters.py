@@ -20,20 +20,15 @@ oversample = True
 #              Grid/RandomizedSearchCV                #
 #######################################################
 
-cv = 3              
-""" integer: Number of cross-validation folds. """
-
-scoring = 'accuracy'  
-""" string: Cross validation scoring method. """
-
-n_jobs = -1
-""" integer: Number of CPU threads to use with GridSearchCV or RandomizedSearchCV. """
-
 n_iter = 100
 """ integer: Max number of iterations for RandomizedSearchCV. """
 
-verbose = 2
-""" integer: Level of verbosity. """
+searchargs = dict( cv =3, 
+                   scoring = 'accuracy',
+                   n_jobs = -1,
+                   verbose = 2,
+                 )
+""" dictionary: Extra arguments for Grid/RandomSearchCV. """
 
 
 ####################################################### 

@@ -50,10 +50,10 @@ if __name__ == '__main__':
     
         # RandomizedSearch is used for large parameter grids only
         if get_n_params(model[1]) <= n_iter:
-            clf = GridSearchCV(model[0], model[1], scoring=scoring, cv=cv, n_jobs=n_jobs, verbose=verbose)
+            clf = GridSearchCV(model[0], model[1], **searchargs)
         
         else:
-            clf = RandomizedSearchCV(model[0], model[1], scoring=scoring, cv=cv, n_iter=n_iter, n_jobs=n_jobs, verbose=verbose)
+            clf = RandomizedSearchCV(model[0], model[1], n_iter=n_iter, **searchargs)
     
         clf.fit(X_train, y_train)
 
