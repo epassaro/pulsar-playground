@@ -75,8 +75,8 @@ ann_params = dict( n = np.arange(2, 20, 2),
                    input_dim = [8],
                    epochs = [200],
                    batch_size = [100, 200],
-                   drop_visible = np.arange(0.1, 0.5, 0.1),
-                   drop_hidden = np.arange(0.1, 0.5, 0.1),
+                   drop_visible = np.arange(0, 0.5, 0.1),
+                   drop_hidden = np.arange(0, 0.5, 0.1),
                    verbose = [0], 
                    callbacks = [[EarlyStopping(monitor='acc', patience=3, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
