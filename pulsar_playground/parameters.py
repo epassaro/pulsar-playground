@@ -23,14 +23,17 @@ oversample = True
 cv = 3              
 """ integer: Number of cross-validation folds. """
 
-scoring = 'recall'  
+scoring = 'accuracy'  
 """ string: Cross validation scoring method. """
 
-n_jobs = 1
+n_jobs = -1
 """ integer: Number of CPU threads to use with GridSearchCV or RandomizedSearchCV. """
 
 n_iter = 100
 """ integer: Max number of iterations for RandomizedSearchCV. """
+
+verbose = 2
+""" integer: Level of verbosity. """
 
 
 ####################################################### 
