@@ -16,7 +16,7 @@ oversample = True
 """ bool: Use SMOTE to fix class imbalance. """
 
 rotate = False
-""" bool: Use PCA. """
+""" bool: Use PCA. If activated please clean previously non-PCA trained models. """
 
 n_components = None 
 """ integer: Number of features to keep if "rotate" is True. """
@@ -56,15 +56,14 @@ lgr_params = dict( penalty = ['l1','l2'],
 """ dictionary: Parameter grid for LogisticRegression. 
         Please refer to Scikit Learn's documentation for more information.""" 
 
-xgb_params = dict( tree_method = ['gpu_hist'],
-                   predictor = ['cpu_predictor'],
-                   n_estimators = [200, 400],
-                   colsample_bytree = np.arange(0.7, 0.9, 0.05),
-                   learning_rate = np.arange(0.01, 0.3, 0.05),
-                   max_depth = np.arange(3, 10, 1),
+xgb_params = dict( #tree_method = ['gpu_hist'],
+                   #predictor = ['cpu_predictor'],
+                   n_estimators = [400],
+                   colsample_bytree = [0.8],
+                   learning_rate = [0.01],
+                   max_depth = [3],
                    gamma = [5],
-                   subsample = np.arange(0.8, 1, 0.5),               
-                   )
+                   subsample = [1], )
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
@@ -76,4 +75,4 @@ ann_params = dict( n = [2],
                    verbose = [0], )
 """ dictionary: Parameter grid for KerasClassifier. 
         If 'rotate' is True then "input_dim" should match "n_components". Otherwise must be equal to number of features. 
-        Please refer to Keras documentation for more information."""
+        Please refer to Keras documentation for more information. """

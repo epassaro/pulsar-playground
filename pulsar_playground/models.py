@@ -38,5 +38,5 @@ model_dict = {}
 """ dictionary: Stores the available models. """
 model_dict['knn'] = (KNeighborsClassifier(), knn_params)
 model_dict['lgr'] = (LogisticRegression(), lgr_params)
-model_dict['xgb'] = (XGBClassifier(), xgb_params)  
+model_dict['xgb'] = (XGBClassifier(), xgb_params)
 model_dict['ann'] = (KerasClassifier(build_fn=keras_model), ann_params)
