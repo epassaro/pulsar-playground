@@ -70,13 +70,13 @@ xgb_params = dict( n_estimators = [200, 400],
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
-ann_params = dict( n = np.arange(8, 20, 2),
+ann_params = dict( n = np.arange(2, 20, 2),
                    m = np.arange(8, 20, 2),
                    input_dim = [8],
                    epochs = [200],
-                   batch_size = [100], 
-                   drop_visible = [0.2],
-                   drop_hidden = [0.2],
+                   batch_size = [100, 200],
+                   drop_visible = np.arange(0.1, 0.5, 0.1),
+                   drop_hidden = np.arange(0.1, 0.5, 0.1),
                    verbose = [0], 
                    callbacks = [[EarlyStopping(monitor='acc', patience=3, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
