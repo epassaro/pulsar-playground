@@ -36,8 +36,8 @@ def make_sets(filename, test_size=0.3, random_state=42, stratify=True):
         
     train, test = train_test_split(data, test_size=test_size, random_state=random_state, stratify=stratify)
 
-    test.to_csv( __dir__ + "/dataset/test_set.csv", index=False)
-    train.to_csv( __dir__ + "/dataset/train_set.csv", index=False)
+    test.to_csv(__dir__ + "/dataset/test_set.csv", index=False)
+    train.to_csv(__dir__ + "/dataset/train_set.csv", index=False)
 
 
 def get_n_params(model):
@@ -55,5 +55,3 @@ def get_n_params(model):
     n = reduce(lambda a,b: a*b, n_)
 
     return n
-
-

@@ -23,7 +23,7 @@ oversample = True
 n_iter = 100
 """ integer: Max number of iterations for RandomizedSearchCV. """
 
-searchargs = dict( cv =3, 
+searchargs = dict( cv = 3, 
                    scoring = 'accuracy',
                    n_jobs = -1,
                    verbose = 2,
