@@ -4,7 +4,6 @@ import sys
 import warnings
 from imblearn.over_sampling import SMOTE
 from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from sklearn.externals.joblib import dump
 from pulsar_playground.utils import *
