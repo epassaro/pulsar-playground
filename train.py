@@ -1,5 +1,4 @@
 """ This script trains models defined in models.py. If no arguments are passed it trains all available models. """
-
 import sys
 import warnings
 from imblearn.over_sampling import SMOTE
@@ -12,15 +11,28 @@ from pulsar_playground.models import *
 
 if __name__ == '__main__':
 
+    # Check user input
+    model_selection= list(sys.argv[1:])
+
+    if len(model_selection) == 0:
+        print("\nUsage: python train.py <model_1> <model_2> ...\n")
+        sys.exit(0)
+
+    for m in model_selection:
+        if m not in model_dict.keys():
+            print('\nNo model named \'%s\'.' % m)
+            get_models()
+            sys.exit(1)
+
     if disable_warnings:
         warnings.filterwarnings("ignore")
-
+    
     # Read training set
     train = pd.read_csv("./pulsar_playground/dataset/train_set.csv")
     X_train = train.iloc[:,:-1]
     y_train = train.iloc[:, -1]
 
-    #%% Preprocessing tasks
+    # Preprocessing tasks
     is_sampled = ''
     if oversample:
 
@@ -33,19 +45,13 @@ if __name__ == '__main__':
         is_sampled = '_smote'
 
     if scale:
-
         scaler = StandardScaler()
         scaler.fit_transform(X_train)
 
     # Train models
-    model_selection= list(sys.argv[1:])
+    for m in model_selection:
 
-    if len(model_selection) == 0:
-        model_selection = model_dict.keys()
-
-    for k in model_selection:
-
-        model = model_dict[k]
+        model = model_dict[m]
         output_file = './saved_models/' + k + is_sampled
     
         # RandomizedSearch is used for large parameter grids only
