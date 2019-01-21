@@ -52,7 +52,7 @@ if __name__ == '__main__':
     for m in model_selection:
 
         model = model_dict[m]
-        output_file = './saved_models/' + k + is_sampled
+        output_file = './saved_models/' + m + is_sampled
     
         # RandomizedSearch is used for large parameter grids only
         if get_n_params(model[1]) <= n_iter:
@@ -71,6 +71,6 @@ if __name__ == '__main__':
             dump(clf.best_estimator_, output_file + '.joblib')
 
         # Print best parameters
-        print(str(k).upper(), 'best params: ', clf.best_params_)
+        print(str(m).upper(), 'best params: ', clf.best_params_)
     
     print('\nFinished.')
