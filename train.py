@@ -63,14 +63,20 @@ if __name__ == '__main__':
     
         clf.fit(X_train, y_train)
 
+        # Print best parameters\
+        print()
+        print(str(m).upper(), 'best params: ', clf.best_params_)
+   
+        # Train again with best params and all available data
+        clf_final = model[0].set_params(**clf.best_params_)
+        clf_final.fit(X_train, y_train)
+
         # Save trained models: Keras (HDF5) or Scikit/XGBoost (joblib)
         if isinstance(model[0], KerasClassifier):
-            clf.best_estimator_.model.save(output_file + '.h5')
+            clf_final.model.save(output_file + '.h5')
 
         else:    
-            dump(clf.best_estimator_, output_file + '.joblib')
+            dump(clf_final, output_file + '.joblib')
 
-        # Print best parameters
-        print(str(m).upper(), 'best params: ', clf.best_params_)
     
     print('\nFinished.')
