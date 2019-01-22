@@ -30,13 +30,13 @@ if __name__ == '__main__':
     pickled = glob("./saved_models/*.joblib")
     hdf5 = glob("./saved_models/*.h5")
 
-    print('\n::: Area Under ROC Curve :::\n')
+    print('\n::: AREA UNDER ROC CURVE :::\n')
     for model in pickled:
     
         clf = load(model)
         y_pred_proba = clf.predict_proba(X_test)
 
-        model_name = str(model).replace('saved_models/','').replace('./','').replace('.joblib','').upper() 
+        model_name = str(model).replace('saved_models/','').replace('./','').replace('.joblib','')
         print(model_name, '= %.3f' % roc_auc_score(y_test, y_pred_proba[:,1]))
 
     for model in hdf5:
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         clf = load_model(model)
         y_pred_proba = clf.predict_proba(X_test)
 
-        model_name = str(model).replace('saved_models/','').replace('./','').replace('.h5','').upper()
+        model_name = str(model).replace('saved_models/','').replace('./','').replace('.h5','')
 
         # KerasClassifier predict_proba output has only one row.
         print(model_name, '= %.3f' % roc_auc_score(y_test, y_pred_proba[:,0]))
