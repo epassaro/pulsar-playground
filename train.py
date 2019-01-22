@@ -18,6 +18,7 @@ if __name__ == '__main__':
         print("\nUsage: python train.py <model_1> <model_2> ...\n")
         sys.exit(0)
 
+    best_params = []
     for m in model_selection:
         if m not in model_dict.keys():
             print('\nNo model named \'%s\'.' % m)
@@ -52,7 +53,6 @@ if __name__ == '__main__':
     for m in model_selection:
 
         model = model_dict[m]
-        output_file = './saved_models/' + m + is_sampled
     
         # RandomizedSearch is used for large parameter grids only
         if get_n_params(model[1]) <= n_iter:
@@ -63,20 +63,25 @@ if __name__ == '__main__':
     
         clf.fit(X_train, y_train)
 
-        # Print best parameters\
-        print()
-        print(str(m).upper(), 'best params: ', clf.best_params_)
+        # Print best parameters
+        best_params.append(clf.best_params_)
    
         # Train again with best params and all available data
         clf_final = model[0].set_params(**clf.best_params_)
         clf_final.fit(X_train, y_train)
 
         # Save trained models: Keras (HDF5) or Scikit/XGBoost (joblib)
+        output_file = './saved_models/' + m + is_sampled
+
         if isinstance(model[0], KerasClassifier):
             clf_final.model.save(output_file + '.h5')
 
         else:    
             dump(clf_final, output_file + '.joblib')
 
+
+    print('\n\n::: BEST PARAMETERS :::\n')
+    for i in range(len(model_selection)):
+        print(str(model_selection[i]), ':', best_params[i])
     
     print('\nFinished.')
