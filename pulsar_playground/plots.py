@@ -150,7 +150,7 @@ def plot_ecdf(data, x_axis, ax=None):
 
 
 def plot_prc(y_test, y_pred_proba, threshold, ax=None):
-    """ Precision recall curve with threshold.
+    """ Precision and recall vs. threshold curves.
     
     Parameters
     -------
