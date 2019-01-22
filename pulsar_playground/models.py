@@ -22,7 +22,9 @@ def keras_model(n, m, input_dim, drop_visible, drop_hidden):
     """
     model = Sequential()
     model.add(Dropout(drop_visible, input_shape=(input_dim,)))
+
     model.add(Dense(m, kernel_initializer='uniform', activation='relu'))
+    model.add(Dropout(drop_hidden))
     
     for i in range(n-1):
         model.add(Dense(m, kernel_initializer='uniform', activation='relu'))

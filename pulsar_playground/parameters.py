@@ -66,12 +66,12 @@ xgb_params = dict( #tree_method = ['gpu_hist'],
         Please refer to the XGBoost API documentation for more information. """ 
 
 ann_params = dict( n = [1, 2],
-                   m = [10, 12, 14],
+                   m = [12, 14],
                    input_dim = [8],
                    epochs = [10],
                    batch_size = [100],
                    drop_visible = [0.0],
-                   drop_hidden = [0.1, 0.2],
+                   drop_hidden = [0.0, 0.1, 0.2],
                    verbose = [0],
                    callbacks = [[EarlyStopping(monitor='acc', patience=3, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
