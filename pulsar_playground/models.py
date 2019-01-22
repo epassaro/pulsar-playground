@@ -8,13 +8,6 @@ from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from .parameters import *
 
-
-def get_models():
-    """ Returns the names of all available models. """
-    
-    global model_dict
-    print('Available models for training:', *list(model_dict.keys()), '\n')
-
     
 def keras_model(n, m, input_dim):
     """ Function to build a sequential neural network.

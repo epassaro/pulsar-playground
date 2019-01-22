@@ -22,7 +22,7 @@ if __name__ == '__main__':
     for m in model_selection:
         if m not in model_dict.keys():
             print('\nNo model named \'%s\'.' % m)
-            get_models()
+            print('Available models for training:', *list(model_dict.keys()), '\n')
             sys.exit(1)
 
     if disable_warnings:
