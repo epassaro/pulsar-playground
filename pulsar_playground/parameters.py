@@ -1,9 +1,15 @@
 """ Parameters for preprocessing and fine-tuning models. """
-
 import numpy as np
+from keras.callbacks import EarlyStopping, ModelCheckpoint
+
+
+####################################################### 
+#                    Miscellaneous                    #
+#######################################################
 
 disable_warnings = True
 """ bool: Disable warnings. """
+
 
 ####################################################### 
 #                Preprocessing tasks                  #
@@ -46,7 +52,7 @@ lgr_params = dict( penalty = ['l1','l2'],
                    solver= ['liblinear'],
                    max_iter = [200], )
 """ dictionary: Parameter grid for LogisticRegression. 
-        Please refer to Scikit Learn's documentation for more information.""" 
+        Please refer to Scikit Learn's documentation for more information. """ 
 
 xgb_params = dict( #tree_method = ['gpu_hist'],
                    #predictor = ['cpu_predictor'],
@@ -59,12 +65,15 @@ xgb_params = dict( #tree_method = ['gpu_hist'],
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
-ann_params = dict( n = [2],
-                   m = [8],
+ann_params = dict( n = [12],
+                   m = [12],
                    input_dim = [8],
-                   epochs = [20],      
-                   batch_size = [100], 
-                   verbose = [0], )
+                   epochs = [200],
+                   batch_size = [100],
+                   drop_visible = np.arange(0, 0.5, 0.1),
+                   drop_hidden = np.arange(0, 0.5, 0.1),
+                   verbose = [0.2], 
+                   callbacks = [[EarlyStopping(monitor='acc', patience=3, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
-        If 'rotate' is True then "input_dim" should match "n_components". Otherwise must be equal to number of features. 
+        If "rotate" is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
         Please refer to Keras documentation for more information. """
