@@ -53,7 +53,8 @@ if __name__ == '__main__':
     for m in model_selection:
 
         model = model_dict[m]
-    
+
+        print('\n\n::: TRAINING %s :::\n' % m.upper())
         # RandomizedSearch is used for large parameter grids only
         if get_n_params(model[1]) <= n_iter:
             clf = GridSearchCV(model[0], model[1], **searchargs)
