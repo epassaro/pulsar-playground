@@ -65,14 +65,14 @@ xgb_params = dict( #tree_method = ['gpu_hist'],
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
-ann_params = dict( n = [12],
-                   m = [12],
+ann_params = dict( n = [1, 2],
+                   m = [10, 12, 14],
                    input_dim = [8],
-                   epochs = [200],
+                   epochs = [10],
                    batch_size = [100],
-                   drop_visible = np.arange(0, 0.5, 0.1),
-                   drop_hidden = np.arange(0, 0.5, 0.1),
-                   verbose = [0.2], 
+                   drop_visible = [0.0],
+                   drop_hidden = [0.1, 0.2],
+                   verbose = [0],
                    callbacks = [[EarlyStopping(monitor='acc', patience=3, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
         If "rotate" is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
