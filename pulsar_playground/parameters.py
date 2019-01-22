@@ -70,14 +70,14 @@ xgb_params = dict( n_estimators = [200, 400],
 """ dictionary: Parameter grid for XGBoostClassifier.
         Please refer to the XGBoost API documentation for more information. """ 
 
-ann_params = dict( n = np.arange(2, 20, 2),
-                   m = np.arange(8, 20, 2),
+ann_params = dict( n = [12],
+                   m = [12],
                    input_dim = [8],
                    epochs = [200],
-                   batch_size = [100, 200],
+                   batch_size = [100],
                    drop_visible = np.arange(0, 0.5, 0.1),
                    drop_hidden = np.arange(0, 0.5, 0.1),
-                   verbose = [0], 
+                   verbose = [0.2], 
                    callbacks = [[EarlyStopping(monitor='acc', patience=3, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
         If "rotate" is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
