@@ -42,5 +42,5 @@ model_dict = {}
 model_dict['knn'] = (KNeighborsClassifier(), knn_params)
 model_dict['lgr'] = (LogisticRegression(), lgr_params)
 model_dict['xgb'] = (XGBClassifier(), xgb_params)
+model_dict['xgb_gpu'] = (XGBClassifier(), xgb_gpu_params)
 model_dict['ann'] = (KerasClassifier(build_fn=keras_model), ann_params)
-model_dict['rnf'] = (RandomForestClassifier(), rnf_params)

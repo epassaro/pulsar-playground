@@ -54,15 +54,26 @@ lgr_params = dict( penalty = ['l1','l2'],
 """ dictionary: Parameter grid for LogisticRegression. 
         Please refer to Scikit Learn's documentation for more information. """ 
 
-xgb_params = dict( #tree_method = ['gpu_hist'],
-                   #predictor = ['cpu_predictor'],
-                   n_estimators = [400],
+xgb_params = dict( n_estimators = [400],
+                   max_depth = [3],
+                   min_child_weight = [3],
+                   gamma = [5],
                    colsample_bytree = [0.8],
                    learning_rate = [0.01],
-                   max_depth = [3],
-                   gamma = [5],
                    subsample = [1], )
 """ dictionary: Parameter grid for XGBoostClassifier.
+        Please refer to the XGBoost API documentation for more information. """ 
+
+xgb_gpu_params = dict( tree_method = ['gpu_hist'],
+                   predictor = ['cpu_predictor'],
+                   n_estimators = [100, 200, 400],
+                   max_depth = [3, 5, 7],
+                   min_child_weight = [1, 2, 4],
+                   gamma = [5, 7, 9],
+                   learning_rate = [0.01, 0.03, 0.05],
+                   colsample_bytree = [0.8, 1.0],
+                   subsample = [0.8, 1.0], )
+""" dictionary: Parameter grid for XGBoostClassifier (GPU).
         Please refer to the XGBoost API documentation for more information. """ 
 
 ann_params = dict( n = [1, 2],
@@ -77,5 +88,3 @@ ann_params = dict( n = [1, 2],
 """ dictionary: Parameter grid for KerasClassifier. 
         If "rotate" is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
         Please refer to Keras documentation for more information. """
-
-rnf_params = dict( n_estimators = [200],)
