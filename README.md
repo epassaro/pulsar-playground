@@ -14,3 +14,10 @@ Data visualization and machine learning tools for the HTRU2 dataset (R. J. Lyon,
 $ conda env create -f environment.yml
 $ conda activate pulsar-playground
 ```
+## Usage
+```
+$ (pulsar-playground) python train.py -h
+
+Usage: python train.py <model_1> <model_2> ...
+Available models for training: knn lgr xgb ann
+```
