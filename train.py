@@ -12,10 +12,11 @@ from pulsar_playground.models import *
 if __name__ == '__main__':
 
     # Check user input
-    model_selection= list(sys.argv[1:])
+    model_selection = list(sys.argv[1:])
 
-    if len(model_selection) == 0:
-        print("\nUsage: python train.py <model_1> <model_2> ...\n")
+    if (len(model_selection) == 0) or (model_selection[0] == '-h'):
+        print("\nUsage: python train.py <model_1> <model_2> ...")
+        print('Available models for training:', *list(model_dict.keys()), '\n')
         sys.exit(0)
 
     best_params = []
@@ -85,4 +86,4 @@ if __name__ == '__main__':
     for i in range(len(model_selection)):
         print(str(model_selection[i]), ':', best_params[i])
     
-    print('\nFinished.')
+    print('\n\nFinished.\n')

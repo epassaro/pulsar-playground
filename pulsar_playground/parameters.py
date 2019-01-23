@@ -77,3 +77,5 @@ ann_params = dict( n = [1, 2],
 """ dictionary: Parameter grid for KerasClassifier. 
         If "rotate" is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
         Please refer to Keras documentation for more information. """
+
+rnf_params = dict( n_estimators = [200],)

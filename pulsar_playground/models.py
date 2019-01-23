@@ -1,6 +1,7 @@
 """ Module for defining models based on parameters.py file. """
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
@@ -42,3 +43,4 @@ model_dict['knn'] = (KNeighborsClassifier(), knn_params)
 model_dict['lgr'] = (LogisticRegression(), lgr_params)
 model_dict['xgb'] = (XGBClassifier(), xgb_params)
 model_dict['ann'] = (KerasClassifier(build_fn=keras_model), ann_params)
+model_dict['rnf'] = (RandomForestClassifier(), rnf_params)
