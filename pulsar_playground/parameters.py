@@ -26,7 +26,7 @@ oversample = True
 #              Grid/RandomizedSearchCV                #
 #######################################################
 
-n_iter = 150
+n_iter = 100
 """ integer: Max number of iterations for RandomizedSearchCV. """
 
 searchargs = dict( cv = 3, 
@@ -66,13 +66,15 @@ xgb_params = dict( n_estimators = [400],
 
 xgb_gpu_params = dict( tree_method = ['gpu_hist'],
                    predictor = ['cpu_predictor'],
-                   n_estimators = [400, 500, 600],
-                   max_depth = [5, 7, 9],
-                   min_child_weight = [1, 2, 4],
-                   gamma = [0.01, 1, 10],
-                   learning_rate = [0.01, 0.05, 0.1],
-                   colsample_bytree = [0.7, 1.0],
-                   subsample = [0.7, 1.0], )
+                   n_estimators = [500],
+                   max_depth = [9, 10],
+                   min_child_weight = [2],
+                   gamma = [5, 10],
+                   reg_alpha = [0.001, 0.01, 0.1, 1.0],
+                   reg_lambda = [0.001, 0.01, 0.1, 1.0],
+                   learning_rate = [0.01, 0.1],
+                   colsample_bytree = [0.7, 0.75, 0.8],
+                   subsample = [1.0], )
 """ dictionary: Parameter grid for XGBoostClassifier (GPU).
         Please refer to the XGBoost API documentation for more information. """ 
 
