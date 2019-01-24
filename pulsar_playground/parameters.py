@@ -66,13 +66,13 @@ xgb_params = dict( n_estimators = [400],
 
 xgb_gpu_params = dict( tree_method = ['gpu_hist'],
                    predictor = ['cpu_predictor'],
-                   n_estimators = [100, 200, 400],
-                   max_depth = [3, 5, 7],
-                   min_child_weight = [1, 2, 4],
-                   gamma = [5, 7, 9],
-                   learning_rate = [0.01, 0.03, 0.05],
-                   colsample_bytree = [0.8, 1.0],
-                   subsample = [0.8, 1.0], )
+                   n_estimators = [400],
+                   max_depth = [7],
+                   min_child_weight = [1],
+                   gamma = [9],
+                   learning_rate = [0.05],
+                   colsample_bytree = [1.0],
+                   subsample = [1.0], )
 """ dictionary: Parameter grid for XGBoostClassifier (GPU).
         Please refer to the XGBoost API documentation for more information. """ 
 
