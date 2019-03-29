@@ -77,7 +77,7 @@ ann_params = dict( n = np.arange(8, 20, 2),
                    batch_size = [100], 
                    drop_visible = [0.2],
                    drop_hidden = [0.2],
-                   verbose = [0], 
+                   verbose = [1], 
                    callbacks = [[EarlyStopping(monitor='acc', patience=3, mode='auto')]], )
 """ dictionary: Parameter grid for KerasClassifier. 
         If "rotate" is True then "input_dim" should match "n_components". Otherwise must be equal to number of features.
