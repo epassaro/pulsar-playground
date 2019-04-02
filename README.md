@@ -1,4 +1,5 @@
-# Pulsar Playground [![Documentation Status](https://readthedocs.org/projects/pulsar-playground/badge/?version=latest)](https://pulsar-playground.readthedocs.io/en/latest/?badge=latest)
+# Pulsar Playground [![Documentation Status](https://readthedocs.org/projects/pulsar-playground/badge/?version=latest)](https://pulsar-playground.readthedocs.io/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2621223.svg)](https://doi.org/10.5281/zenodo.2621223)
+
 
 Data visualization and machine learning tools for the HTRU2 dataset (R. J. Lyon, 2016).
 
