@@ -1,3 +1,7 @@
+> ⚠️ THIS REPOSITORY IS NO LONGER MAINTAINED ⚠️
+>
+> This was my first machine learning project, It has been so long...
+
 # Pulsar Playground [![Documentation Status](https://readthedocs.org/projects/pulsar-playground/badge/?version=latest)](https://pulsar-playground.readthedocs.io/en/latest/?badge=latest)
 
 
